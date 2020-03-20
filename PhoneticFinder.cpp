@@ -1,9 +1,9 @@
-#include <string>
+#include "PhoneticFinder.hpp"
 #include <iostream>
 using namespace std;
 
-
-/*function that check if the letter is the same letter (capital or small)*/
+namespace phonetic {
+    /*function that check if the letter is the same letter (capital or small)*/
 bool Same(char let1, char let2){
     if(islower(let1) && isupper(let2)){
         let1=toupper(let1);
@@ -100,9 +100,9 @@ bool mistake(char let1, char let2){
     }
     return false;
 }
+    /*This function will find the word that we search with the mistakes that can be made */
 
-/*This function will find the word that we search with the mistakes that can be made */
-string find(string text, string word){ //de Dond find  dont
+	std::string find(std::string text, std::string word) {
     int i=0, j=0;
     string ans= "";
     while (i < text.size() && j < word.size()){
@@ -135,13 +135,11 @@ string find(string text, string word){ //de Dond find  dont
         return "The word is not in the String";
     }
 }
-
-
-
+}
 
 int main(){
     string a="Dond vorri be haffy" , b ="happy";
-    std:: cout << find(a,b) << endl; 
+    std:: cout << phonetic::find(a,b) << endl; 
 
     /*
     std:: cout<<Same('C','c') << endl;

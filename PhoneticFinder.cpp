@@ -2,38 +2,6 @@
 #include <iostream>
 using namespace std;
 
-/*This function will find the word that we search with the mistakes that can be made */
-string find(string text, string word){ //de Dond find  dont
-    int i, j=0;
-    string ans= "";
-    while (i < text.size && j < word.size){
-        if(text.at(i)==word.at(j)){
-            ans+=text.at(i);
-            i++;
-            j++;
-        }
-        else{
-            if(Same(text.at(i), word.at(j))){
-                ans+=text.at(i);
-                i++;
-                j++;
-            }
-            else{
-                if(mistake(text.at(i), word.at(j))){
-                    ans+=text.at(i);
-                    i++;
-                    j++;
-                }
-            }
-        }
-    }
-    if ( j == word.size){
-        return ans;
-    }
-    else{
-        return "The word is not in the String";
-    }
-}
 
 /*function that check if the letter is the same letter (capital or small)*/
 bool Same(char let1, char let2){
@@ -133,11 +101,49 @@ bool mistake(char let1, char let2){
     return false;
 }
 
+/*This function will find the word that we search with the mistakes that can be made */
+string find(string text, string word){ //de Dond find  dont
+    int i=0, j=0;
+    string ans= "";
+    while (i < text.size() && j < word.size()){
+        if(text.at(i)==word.at(j)){
+            ans+=text.at(i);
+            j++;
+        }
+        else if(Same(text.at(i), word.at(j))){
+                ans+=text.at(i);
+                j++;
+            }
+        else if(mistake(text.at(i), word.at(j))){
+                    ans+=text.at(i);
+                    j++;
+                }
+            else {
+                j=0;
+                ans = "";
+                while (text.at(i) != ' '){
+                    i++;
+                }
+            }    
+                            i++;       
+            }
+            
+    if ( j == word.size()){
+        return ans;
+    }
+    else{
+        return "The word is not in the String";
+    }
+}
+
+
+
+
 int main(){
+    string a="Dond vorri be haffy" , b ="happy";
+    std:: cout << find(a,b) << endl; 
 
-
-
-
+    /*
     std:: cout<<Same('C','c') << endl;
         if (Same('b','f') ){
             std:: cout<<"false" << endl;
@@ -147,5 +153,5 @@ int main(){
     if (Same('W','w') ){
     std:: cout<< "true" << endl;
     }
-
+*/
 }

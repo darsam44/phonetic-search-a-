@@ -1,5 +1,6 @@
 #include "PhoneticFinder.hpp"
 #include <iostream>
+#include <stdexcept>
 using namespace std;
 
 namespace phonetic {
@@ -125,21 +126,34 @@ bool mistake(char let1, char let2){
                     i++;
                 }
             }    
-                            i++;       
+                            i++;     
             }
             
-    if ( j == word.size()){
-        return ans;
-    }
+           
+            if(i==text.size()){
+               if(j==word.size()){
+                   return ans;
+               }
+            }
+        if ( (j==word.size()) && (text.at(i)==' ')){
+            return ans;
+        }
     else{
-        return "The word is not in the String";
+        throw std::out_of_range{" The word that you enter didn't found in the text . "};
     }
 }
 }
 
-int main(){
-    string a="Dond vorri be haffy" , b ="happy";
-    std:: cout << phonetic::find(a,b) << endl; 
+// int main(){
+//     string a="Dond vorri be haffy" , b ="happy";
+//     std:: cout << phonetic::find(a,b) << endl; 
+//     try{
+//         std:: cout << phonetic::find("Dond vorri be haffy","the") << endl; 
+//     }
+//     catch(exception ex){
+//         cout << "   caught exception: " << ex.what() << endl;
+
+//     }
 
     /*
     std:: cout<<Same('C','c') << endl;
@@ -152,4 +166,4 @@ int main(){
     std:: cout<< "true" << endl;
     }
 */
-}
+// }

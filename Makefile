@@ -9,7 +9,7 @@ OBJECTS=PhoneticFinder.o
 run: demo
 	./$^
 
-demo: makeDemo.o $(OBJECTS)
+demo: Demo.o $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o demo
 
 test: TestCounter.o Test.o $(OBJECTS)

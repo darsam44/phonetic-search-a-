@@ -104,10 +104,17 @@ bool mistake(char let1, char let2){
     /*This function will find the word that we search with the mistakes that can be made */
 
 	std::string find(std::string text, std::string word) {
+        if ( word.size() == 0){
+             throw std::out_of_range{" the word that you entered isn't valid"};
+        }
     int i=0, j=0;
     string ans= "";
-    while (i < text.size() && j < word.size()){
-        if(text.at(i)==word.at(j)){
+    while (i < text.size()){
+        if (j == word.size() && text.at(i) == ' ' ){
+            break;
+        }
+        if ((j < word.size())){
+        if( text.at(i)==word.at(j)){
             ans+=text.at(i);
             j++;
         }
@@ -125,7 +132,16 @@ bool mistake(char let1, char let2){
                 while (text.at(i) != ' '){
                     i++;
                 }
-            }    
+            }   
+        } 
+           else {
+                j=0;
+                ans = "";
+                while (text.at(i) != ' '){
+                    i++;
+                }
+            }  
+        
                             i++;     
             }
             
@@ -144,26 +160,3 @@ bool mistake(char let1, char let2){
 }
 }
 
-// int main(){
-//     string a="Dond vorri be haffy" , b ="happy";
-//     std:: cout << phonetic::find(a,b) << endl; 
-//     try{
-//         std:: cout << phonetic::find("Dond vorri be haffy","the") << endl; 
-//     }
-//     catch(exception ex){
-//         cout << "   caught exception: " << ex.what() << endl;
-
-//     }
-
-    /*
-    std:: cout<<Same('C','c') << endl;
-        if (Same('b','f') ){
-            std:: cout<<"false" << endl;
-        }
-
-    std:: cout<<Same('b','f') << endl;
-    if (Same('W','w') ){
-    std:: cout<< "true" << endl;
-    }
-*/
-// }

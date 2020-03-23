@@ -153,7 +153,7 @@ TEST_CASE("i and y")
 	CHECK( phonetic::find(text,"Yesterday").compare("yesterday") == 0 );
 }
 
-TEST_CASE("i and y")
+TEST_CASE("all")
 {
     string text = "I dont like coron virus ";
 	CHECK( phonetic::find(text,"vyruZ").compare("virus") == 0 );

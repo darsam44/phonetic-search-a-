@@ -104,6 +104,9 @@ bool mistake(char let1, char let2){
     /*This function will find the word that we search with the mistakes that can be made */
 
 	std::string find(std::string text, std::string word) {
+        if (word == " "){
+             throw std::out_of_range{" the word that you entered isn't valid"};
+        }
         if ( word.size() == 0){
              throw std::out_of_range{" the word that you entered isn't valid"};
         }

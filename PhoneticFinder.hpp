@@ -1,7 +1,9 @@
 
 #pragma once
 #include <string>
+using namespace std;
 
 namespace phonetic {
-	std::string find(std::string text, std::string word);
+	/*find the words that were changes and return them with the mistakes*/
+	string find(string text, string word);
 }

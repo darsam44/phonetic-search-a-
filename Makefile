@@ -12,7 +12,7 @@ run: demo
 demo: Demo.o $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o demo
 
-test: TestCounter.o Test.o $(OBJECTS)
+test: TestRunner.o Test_ofek.o Test_snir.o $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o test
 
 %.o: %.cpp $(HEADERS)

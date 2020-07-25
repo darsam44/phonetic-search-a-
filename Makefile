@@ -15,6 +15,9 @@ demo: Demo.o $(OBJECTS)
 test: TestRunner.o Test_ofek.o Test_snir.o $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o test
 
+Test: TestCounter.o Test.o $(OBJECTS)
+	$(CXX) $(CXXFLAGS) $^ -o Test
+
 %.o: %.cpp $(HEADERS)
 	$(CXX) $(CXXFLAGS) --compile $< -o $@
 
